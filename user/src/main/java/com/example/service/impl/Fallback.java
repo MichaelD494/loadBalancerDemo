@@ -1,13 +1,13 @@
 package com.example.service.impl;
 
-import com.example.fegin.SayHelloClient;
-import org.springframework.stereotype.Service;
+import com.example.fegin.UserClient;
+import org.springframework.stereotype.Component;
 
 import java.util.Collections;
 import java.util.List;
 
-@Service
-public class SayHelloFallback implements SayHelloClient {
+@Component
+public class Fallback implements UserClient {
 
     @Override
     public List<String> getList() {

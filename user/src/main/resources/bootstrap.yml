@@ -4,8 +4,30 @@ spring:
   profiles:
     active: dev
   cloud:
+    circuitbreaker:
+      enabled: true
+      details:
+        enabled: true
+    openfeign:
+      circuitbreaker:
+        enabled: true
     bootstrap:
       enable: true
     config:
       uri: http://localhost:7100
 
+resilience4j:
+  circuitbreaker:
+    instances:
+      say-hello:
+        minimumNumberOfCalls: 1
+  timelimiter:
+    instances:
+      say-hello:
+        timeoutDuration: 3s
+
+logging:
+  level:
+    project:
+      user:
+        UserClient: Debug
