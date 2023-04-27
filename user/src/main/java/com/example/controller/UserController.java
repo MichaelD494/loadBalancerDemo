@@ -20,8 +20,6 @@ public class UserController {
     private WebClient.Builder webclient;
     @Autowired
     private IUserService userService;
-    @Autowired
-    private CircuitBreakerFactory circuitBreakerFactory;
 
     @RequestMapping("/getSayHelloList")
     public List<String> getSayHelloList() {
@@ -30,11 +28,7 @@ public class UserController {
 
     @RequestMapping("/test")
     public String test() {
-        CircuitBreaker circuitBreaker = circuitBreakerFactory.create("circuitbreaker");
-        String run = circuitBreaker
-                .run(() -> webclient.build().get().uri("http://say-hello/api/sayHello/test").retrieve().bodyToMono(String.class).block(),
-                        throwable -> "FAIL");
-        return run;
+        return "";
     }
 
     @RequestMapping("/hi")
