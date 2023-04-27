@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: say-hello
+  profiles:
+    active: test
+  cloud:
+    bootstrap:
+      enable: true
+    config:
+      uri: http://localhost:7100

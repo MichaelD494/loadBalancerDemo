@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: gateway
+  profiles:
+    active: dev
+  cloud:
+    bootstrap:
+      enable: true
+    config:
+      uri: http://localhost:7100
